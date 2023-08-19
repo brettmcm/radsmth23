@@ -36,7 +36,14 @@ export function CaseCover() {
 
   return (
     <div className="case-study">
-      <div className="img"></div>
+      <div className="img">
+        <Image
+          fill
+          src="/covers/canary-05.png"
+          alt="Canary branding image"
+          className="imgimg"
+        />
+      </div>
       <h2>Canary</h2>
       <p>Branding, Visual Identity</p>
     </div>
