@@ -27,7 +27,7 @@ export default function Home() {
   )
 }
 
-export function HeaderNav() {
+function HeaderNav() {
   return (
     <header>
       <h1>Radsmth—</h1>
@@ -36,7 +36,7 @@ export function HeaderNav() {
   )
 }
 
-export function HeroBanner() {
+function HeroBanner() {
 
   return (
     <div className="hero-banner">
