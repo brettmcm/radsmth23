@@ -11,7 +11,7 @@ export default function Home() {
     <div>
       <HeaderNav />
       <main>
-        <HeroBanner />z
+        <HeroBanner />
         <CaseCover
           title="Canary"
           services="Branding, Visual Identity"
