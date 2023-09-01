@@ -76,7 +76,7 @@ function HeroBanner() {
 
   return (
     <div className="hero-banner">
-        <motion.h1 style={{ opacity: o }}>Radsmth</motion.h1>
+        <motion.h1 style={{ opacity: o }}><div>Rad</div><div>smth</div></motion.h1>
         <motion.div
           style={{ y, scale: s }}
           className="heroFGcontainer"
