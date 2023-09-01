@@ -4,28 +4,22 @@
 
 :root {
   --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  --background-rgb: 214, 219, 220;
   --accent: 75, 255, 150;
+  --spacing-default: calc(1rem + 2vw);
+  --spacing-sm: calc(1rem + 1vw);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+    --background-rgb: 0, 0, 0;
   }
 }
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
-
+  background: rgb(var(--background-rgb));
 }
 
 a {
@@ -35,50 +29,99 @@ a {
 
 a:after {
   position: absolute;
-  bottom: -1px;
+  bottom: -3px;
   left: 0;
   width: 100%;
   height: 1px;
   content: '';
   background: rgb(var(--accent));
-  opacity: 0.25;
+  opacity: 0.35;
 }
 
 header {
   position: fixed;
   width: 100%;
-  height: 6em;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding: 0 2em;
+  padding: var(--spacing-sm) var(--spacing-default);
   background: rgb(var(--background-start-rgb), 0.5);
   backdrop-filter: blur(25px) saturate(150%);
   z-index: 1000;
+  line-height: 1rem;
+}
+
+header::before {
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(rgba(var(--background-rgb), 1), rgba(var(--background-rgb), 0.5));
+  content: '';
 }
 
 header h1 {
-  font-weight: 500;
+  font-weight: 400;
 }
 
 main {
-  padding-top: 6em;
+  padding-top: calc(1rem + var(--spacing-sm) + var(--spacing-sm));
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .hero-banner {
   position: relative;
-  aspect-ratio: 4/3;
-  margin-bottom: 1.1em;
-  padding: 1.1em;
+  width: 100%;
+  height: 100vh;
+  margin-top: calc(-1 * (1rem + var(--spacing-sm) + var(--spacing-sm)));
+  padding: var(--spacing-default);
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
-  align-items: flex-start;
-  font-weight: 700;
-  font-size: 1.8em;
+  justify-content: center;
+  align-items: center;
+  text-transform: uppercase;
+  font-size: clamp(1.8em, 20vw, 20em);
   line-height: 1.15em;
-  letter-spacing: -1px;
+  letter-spacing: -0.1em;
+}
+
+@keyframes riseIn {
+  0% {
+    opacity: 0;
+    transform: translateY(0);
+    filter: blur(3px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(-2rem);
+  }
+}
+
+.hero-banner h1 {
+  animation: riseIn 1s ease-out forwards;
+}
+
+.heroFGcontainer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.heroFG {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .anchor-square {
@@ -89,9 +132,24 @@ main {
   display: block;
 }
 
-.case-study {
-  padding: 0 2em 3em 2em;
+.work {
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(1, 1fr);
+  gap: calc(0.5em + 2vw);
+  padding: 50vh var(--spacing-default) 3em var(--spacing-default);
 }
+
+@media screen and (min-width: 800px) {
+  .work {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.case-study {
+  width: 100%;
+}
+
 
 .case-study .img {
   position: relative;
@@ -99,6 +157,7 @@ main {
   margin-bottom: 0.25em;
   border-radius: 2px;
   object-fit: cover;
+  z-index: -1;
 }
 
 .imgimg {
@@ -106,8 +165,13 @@ main {
 }
 
 .case-study h2 {
-  font-weight: 500;
+  font-size: 1em;
+  font-weight: 600;
 }
+
+/* .case-study h2::after {
+  content: ' →';
+} */
 
 .case-study p {
   opacity: 0.7;
