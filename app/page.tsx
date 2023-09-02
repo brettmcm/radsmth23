@@ -4,7 +4,7 @@ import Image from 'next/image'
 import Link from 'next/link';
 import { motion, useScroll, useTransform, MotionValue } from "framer-motion"
 
-import CaseStudy from '../pages/casestudy';
+// import CaseStudy from '../pages/casestudy';
 
 type CaseType = {
   title: string;
