@@ -44,6 +44,8 @@ article p {
 }
 
 .description {
+    font-weight: 100;
+    font-size: 0.9em;
     margin-bottom: 3em;
 }
 
@@ -54,16 +56,25 @@ article p {
 .galleryItem {
     position: relative;
     display: flex;
-    flex-direction: row;
-    gap: 3em;
+    flex-direction: column;
+    gap: 1em;
     margin-bottom: 3em;
 }
 
 .caption {
     width: 25%;
+    font-size: 0.9em;
+    font-weight: 100;
 }
 
 .galleryImg {
     position: relative;
     width: 100%;
+}
+
+@media screen and (min-width: 768px) {
+    .galleryItem {
+        flex-direction: row;
+    }
+    
 }
