@@ -1,11 +1,15 @@
-import './globals.css'
+"use client";
+
+import '@/lib/globals.css'
 import type { Metadata } from 'next'
 import { Martian_Mono } from 'next/font/google'
+
+import HeaderNav from './components/header'
 
 
 const martian = Martian_Mono({ subsets: ['latin'] })
 
-export const metadata: Metadata = {
+const metadata: Metadata = {
   title: 'Radsmth, Inc.',
   description: 'We make rad brands',
 }
@@ -17,7 +21,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={martian.className}>{children}</body>
+      <body className={martian.className}>
+        
+        <HeaderNav />
+        {children}
+        
+      </body>
     </html>
   )
 }
