@@ -20,7 +20,7 @@ export async function getPostDetails(postId) {
     'canary': {
       title: "Canary Co.",
       category: "Consumer goods",
-      credit: "Branding & visual identity",
+      credit: "Branding and visual identity",
       location: "Oceanside, CA",
       year: "2023",
       desc: "With no desire to join the green-washed eco-friendly aesthetic, Canary approached Radsmth with the challenge of bringing the company desire for a more subversive, punk-rock ethos to the world of plastic-free, sustainable personal & home care products.",
@@ -39,7 +39,7 @@ export async function getPostDetails(postId) {
     'islanddwell': {
       title: "Island Dwell",
       category: "Home staging services",
-      credit: "Branding & visual identity",
+      credit: "Branding and visual identity",
       location: "Maui, HI",
       year: "2021",
       desc: "With no desire to join the green-washed eco-friendly aesthetic, Canary approached Radsmth with the challenge of bringing the company desire for a more subversive, punk-rock ethos to the world of plastic-free, sustainable personal & home care products."
