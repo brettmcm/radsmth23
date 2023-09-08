@@ -17,7 +17,7 @@ export async function generateStaticParams() {
   }));
 }
 
-export default async function CaseStudy({
+export default async function Page({
   params,
 }: {
   params: { id: string };
@@ -67,5 +67,5 @@ export default async function CaseStudy({
         ))}
       </div>
     </article>
-  );
+  )
 }
