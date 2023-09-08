@@ -1,13 +1,13 @@
 import Image from "next/image";
 import { getPostDetails, getPostIdList } from "../../lib/work";
 
-export async function getStaticPaths() {
-  const paths = await getPostIdList();
-  return {
-    paths,
-    fallback: false,
-  };
-}
+// export async function getStaticPaths() {
+//   const paths = await getPostIdList();
+//   return {
+//     paths,
+//     fallback: false,
+//   };
+// }
 
 export async function generateStaticParams() {
   const posts = await fetch("../../lib/work").then((res) => res.json());
