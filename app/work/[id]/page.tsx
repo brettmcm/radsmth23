@@ -20,7 +20,9 @@ export async function generateStaticParams() {
 }
 
 
-export default async function CaseStudy({ params }: { params: { id: string } }) {
+export default async function CaseStudy(props) {
+
+    const { params }: { params: { id: string } } = props
     
     const metaData = await getPostDetails(params.id);
     const galleryData = metaData.images;
