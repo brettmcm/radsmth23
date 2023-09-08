@@ -1,14 +1,14 @@
 import { motion, useScroll, useTransform, MotionValue } from "framer-motion"
 
 
-function headerSpeed(value: MotionValue<number>, distance: number) {
+function useParallax(value: MotionValue<number>, distance: number) {
   return useTransform(value, [0, 0.25], [-distance, 0]);
 }
 
 function HeaderNav() {
 
   const { scrollYProgress } = useScroll();
-  const y = headerSpeed(scrollYProgress, 100);
+  const y = useParallax(scrollYProgress, 100);
 
   return (
     <motion.header style={{ y }} >

@@ -12,7 +12,7 @@ export async function getStaticPaths() {
 
 
 export async function generateStaticParams() {
-  const posts = await fetch('../../lib/work').then((res) => res.json())
+  const posts = await fetch("../../lib/work").then((res) => res.json())
  
   return posts.map((post: { slug: any; }) => ({
     slug: post.slug,
