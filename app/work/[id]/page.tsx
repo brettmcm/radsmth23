@@ -5,7 +5,7 @@ export async function getStaticPaths() {
   const paths = await getPostIdList();
   return {
     paths,
-    fallback: false,
+    fallback: 'blocking',
   };
 }
 
@@ -17,17 +17,13 @@ export async function generateStaticParams() {
   }));
 }
 
-export default async function CaseStudy({
-  params,
-}: {
-  params: { id: string };
-}) {
+export default async function CaseStudy({ params }: { params: { id: string }; }) {
   const metaData = await getPostDetails(params.id);
   const galleryData = metaData.images;
 
   return (
     <article>
-      {/* <ul className="cs-meta">
+      <ul className="cs-meta">
         <li>
           <h3>Client</h3>
           {metaData.title}
@@ -65,10 +61,7 @@ export default async function CaseStudy({
             />
           </div>
         ))}
-      </div> */}
-
-      Hello, Koa.
-      
+      </div>
     </article>
   )
 }
