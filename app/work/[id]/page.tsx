@@ -9,15 +9,15 @@ export async function getStaticPaths() {
   };
 }
 
-// export async function generateStaticParams() {
-//   const posts = await fetch("../../lib/work").then((res) => res.json());
+export async function generateStaticParams() {
+  const posts = await fetch("../../lib/work").then((res) => res.json());
 
-//   return posts.map((post: { slug: any }) => ({
-//     slug: post.slug,
-//   }));
-// }
+  return posts.map((post: { slug: any }) => ({
+    slug: post.slug,
+  }));
+}
 
-export default async function Page({
+export async function CaseStudy({
   params,
 }: {
   params: { id: string };
@@ -69,3 +69,5 @@ export default async function Page({
     </article>
   )
 }
+
+export default CaseStudy;
